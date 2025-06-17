@@ -109,7 +109,7 @@ export default function App() {
     },    { icon: '/icons/resume.png', label: 'Resume', link: '#' },
     {
       icon: '/icons/folder.gif',
-      label: 'Digital Garden',
+      label: 'Musing',
       link: 'https://dg-git-main-kels-projects-1630813e.vercel.app/',
     },
     {
