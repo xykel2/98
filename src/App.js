@@ -330,6 +330,18 @@ export default function App() {
             </div>
             <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
               <p>
+                <img
+    src="/serge.png"
+    alt="Portrait of Serge at RISD"
+    style={{
+      width: '100%',
+      maxWidth: '300px',
+      height: 'auto',
+      display: 'block',
+      margin: '0 auto 1rem auto',
+      border: '2px solid black'
+    }}
+  />
                 I work with digital and analog synthesizers, field recordings, and found objects to make ambient drones.
                 This space holds fragments from my sonic world:
               </p>
