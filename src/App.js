@@ -329,7 +329,7 @@ export default function App() {
               </div>
             </div>
             <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
-              <p>
+            
                 <img
     src="/serge.png"
     alt="Portrait of Serge at RISD"
@@ -342,6 +342,7 @@ export default function App() {
       border: '2px solid black'
     }}
   />
+  <p>
                 I work with digital and analog synthesizers, field recordings, and found objects to make ambient drones.
                 This space holds fragments from my sonic world:
               </p>
