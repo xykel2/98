@@ -206,15 +206,22 @@ export default function App() {
           <div
             className="window"
             onMouseDown={() => bringToFront('about')}
-            style={{
-              zIndex: zIndices.about,
-              width: '400px',
-              position: 'absolute',
-              top: '50px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
-            }}
+           style={{
+  zIndex: zIndices.gallery,
+  width: '90vw',
+  maxWidth: '500px',
+  height: '80vh',
+  position: 'fixed',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  overflow: 'auto',
+  boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
+  backgroundColor: 'grey',
+  display: 'flex',
+  flexDirection: 'column',
+}}
+
           >
             <div className="title-bar">
               <div className="title-bar-text" style={{ fontSize: '18px', fontWeight: 'bold' }}>About me</div>
