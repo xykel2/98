@@ -54,11 +54,7 @@ export default function App() {
   const toggleMute = () => {
     if (!audioRef.current) return;
 
-    if (isMuted) {
-      audioRef.current.volume = 0.5;
-    } else {
-      audioRef.current.volume = 0;
-    }
+    audioRef.current.muted = !isMuted;
     setIsMuted(!isMuted);
   };
 
