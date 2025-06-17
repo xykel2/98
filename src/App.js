@@ -1,49 +1,43 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import '98.css';
 
 export default function App() {
   const [showAbout, setShowAbout] = useState(false);
-  const [currentTime, setCurrentTime] = useState('');
   const [showPhotoGallery, setShowPhotoGallery] = useState(false);
   const [showSoundPopup, setShowSoundPopup] = useState(false);
   const [showVideoPopup, setShowVideoPopup] = useState(false);
+  const [currentTime, setCurrentTime] = useState('');
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const photoCount = 8;
-  const [zIndices, setZIndices] = useState({
-    about: 1,
-    gallery: 2,
-    sound: 3,
-  });
-  const [topZIndex, setTopZIndex] = useState(3);
-
-  const audioRef = useRef(null);
+  const [zIndices, setZIndices] = useState({ about: 1, gallery: 2, sound: 3, video: 4 });
+  const [topZIndex, setTopZIndex] = useState(4);
   const [isMuted, setIsMuted] = useState(false);
+  const audioRef = useRef(null);
+  const [fadeTransition, setFadeTransition] = useState(false);
 
+  // Bring window to front
   const bringToFront = (key) => {
     const newTop = topZIndex + 1;
     setZIndices(prev => ({ ...prev, [key]: newTop }));
     setTopZIndex(newTop);
   };
 
+  // Background music setup
   useEffect(() => {
     if (audioRef.current) return;
 
     const audio = new Audio('/audio/bg-mus.wav');
     audio.loop = true;
     audio.volume = 0.5;
-
-    audioRef.current = audio; // Store audio element
+    audioRef.current = audio;
 
     const tryPlay = () => {
-      audio.play().catch(e => {
-        console.log("Still blocked:", e);
-      });
-      window.removeEventListener('click', tryPlay); // Clean up listener
+      audio.play().catch((e) => console.log('Blocked:', e));
+      window.removeEventListener('click', tryPlay);
     };
 
-    audio.play().catch(() => {
-      window.addEventListener('click', tryPlay);
-    });
+    audio.play().catch(() => window.addEventListener('click', tryPlay));
 
     return () => {
       window.removeEventListener('click', tryPlay);
@@ -53,33 +47,66 @@ export default function App() {
 
   const toggleMute = () => {
     if (!audioRef.current) return;
-
-    if (isMuted) {
-      audioRef.current.volume = 0.5;
-    } else {
-      audioRef.current.volume = 0;
-    }
+    audioRef.current.volume = isMuted ? 0.5 : 0;
     setIsMuted(!isMuted);
   };
 
+  // Clock
   useEffect(() => {
-    function formatTime(date) {
-      let hours = date.getHours();
-      const minutes = date.getMinutes();
-      const ampm = hours >= 12 ? 'PM' : 'AM';
-      hours = hours % 12 || 12;
-      const minutesStr = minutes < 10 ? '0' + minutes : minutes;
-      return `${hours}:${minutesStr} ${ampm}`;
-    }
+    const formatTime = (date) => {
+      let h = date.getHours();
+      const m = date.getMinutes();
+      const ampm = h >= 12 ? 'PM' : 'AM';
+      h = h % 12 || 12;
+      return `${h}:${m < 10 ? '0' + m : m} ${ampm}`;
+    };
 
     setCurrentTime(formatTime(new Date()));
-
-    const intervalId = setInterval(() => {
-      setCurrentTime(formatTime(new Date()));
-    }, 1000);
-
+    const intervalId = setInterval(() => setCurrentTime(formatTime(new Date())), 1000);
     return () => clearInterval(intervalId);
   }, []);
+
+  // Global keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setShowAbout(false);
+        setShowSoundPopup(false);
+        setShowVideoPopup(false);
+        setShowPhotoGallery(false);
+      }
+
+      if (showPhotoGallery) {
+        if (e.key === 'ArrowLeft') {
+          setFadeTransition(true);
+          setTimeout(() => {
+            setCurrentPhotoIndex((prev) => (prev === 0 ? photoCount - 1 : prev - 1));
+            setFadeTransition(false);
+          }, 100);
+        } else if (e.key === 'ArrowRight') {
+          setFadeTransition(true);
+          setTimeout(() => {
+            setCurrentPhotoIndex((prev) => (prev + 1) % photoCount);
+            setFadeTransition(false);
+          }, 100);
+        }
+      }
+
+      if (document.activeElement && e.key === 'Enter') {
+        document.activeElement.click?.();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [showPhotoGallery]);
+
+  // Prevent background scroll when modals are open
+  useEffect(() => {
+    const isAnyModalOpen = showAbout || showPhotoGallery || showSoundPopup || showVideoPopup;
+    document.body.style.overflow = isAnyModalOpen ? 'hidden' : 'auto';
+    return () => (document.body.style.overflow = 'auto');
+  }, [showAbout, showPhotoGallery, showSoundPopup, showVideoPopup]);
 
   const icons = [
     {
@@ -89,7 +116,7 @@ export default function App() {
         setShowPhotoGallery(true);
         setCurrentPhotoIndex(0);
         bringToFront('gallery');
-      }
+      },
     },
     {
       icon: '/icons/sounds.gif',
@@ -97,7 +124,7 @@ export default function App() {
       onClick: () => {
         setShowSoundPopup(true);
         bringToFront('sound');
-      }
+      },
     },
     {
       icon: '/icons/video.gif',
@@ -105,8 +132,13 @@ export default function App() {
       onClick: () => {
         setShowVideoPopup(true);
         bringToFront('video');
-      }
-    },    { icon: '/icons/resume.png', label: 'Resume', link: '#' },
+      },
+    },
+    {
+      icon: '/icons/resume.png',
+      label: 'Resume',
+      link: '#',
+    },
     {
       icon: '/icons/folder.gif',
       label: 'Digital Garden',
@@ -118,7 +150,7 @@ export default function App() {
       onClick: () => {
         setShowAbout(true);
         bringToFront('about');
-      }
+      },
     },
   ];
 
@@ -133,6 +165,7 @@ export default function App() {
         position: 'relative',
       }}
     >
+      {/* Title Bar */}
       <div
         className="window"
         style={{
@@ -175,6 +208,7 @@ export default function App() {
 
       <div style={{ height: '2.5rem' }} />
 
+      {/* Icons Grid */}
       <div
         style={{
           display: 'grid',
@@ -185,7 +219,11 @@ export default function App() {
         }}
       >
         {icons.map((item, idx) => (
-          <div key={idx} style={{ textAlign: 'center', cursor: item.onClick ? 'pointer' : 'default' }}>
+          <div
+            key={idx}
+            tabIndex={0}
+            style={{ textAlign: 'center', cursor: item.onClick ? 'pointer' : 'default', outline: 'none' }}
+          >
             {item.link ? (
               <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                 <img src={item.icon} alt={item.label} style={{ width: '96px', height: '96px' }} />
@@ -201,170 +239,73 @@ export default function App() {
         ))}
       </div>
 
-      <div style={{ position: 'relative', zIndex: 10000 }}>
-        {showAbout && (
-          <div
-            className="window"
-            onMouseDown={() => bringToFront('about')}
-            style={{
-              zIndex: zIndices.about,
-              width: '400px',
-              position: 'absolute',
-              top: '50px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
-            }}
-          >
-            <div className="title-bar">
-              <div className="title-bar-text" style={{ fontSize: '18px', fontWeight: 'bold' }}>About me</div>
-              <div className="title-bar-controls">
-                <button onClick={() => setShowAbout(false)} aria-label="Close" />
-              </div>
+      {/* Modals */}
+      {/** Keep using your existing popup/modal structure for About, Sound, and Video. Here's the only updated one: **/}
+      {showPhotoGallery && (
+        <div
+          className="window"
+          onMouseDown={() => bringToFront('gallery')}
+          style={{
+            zIndex: zIndices.gallery,
+            width: '500px',
+            position: 'absolute',
+            top: '60px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
+          }}
+        >
+          <div className="title-bar">
+            <div className="title-bar-text" style={{ fontSize: '18px', fontWeight: 'bold' }}>
+              Photo Gallery
             </div>
-            <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
-              <p>Xinyu Kelly Yan is a self-proclaimed <a href="https://www.theguardian.com/cities/2016/jul/29/female-flaneur-women-reclaim-streets" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">flaneuse</a> practicing urban planning, design, and time-based media.</p>
-              <p>She has been roaming the streets, roofs, and ruins of cities while looking for Shanghai elsewhere since 2001.</p>
-              <p>Currently falling in love with the world and nurturing her <a href="https://www.are.na/xinyu-yan/channels" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">fascinations</a> in all things place-based, audiovisual, and embodied.</p>
-              <img
-    src="/me.jpg"
-    alt="Portrait of Xinyu Kelly Yan"
-    style={{
-      width: '100%',
-      maxWidth: '300px',
-      height: 'auto',
-      display: 'block',
-      margin: '0 auto 1rem auto',
-      border: '2px solid black'
-    }}
-  />
+            <div className="title-bar-controls">
+              <button onClick={() => setShowPhotoGallery(false)} aria-label="Close" />
             </div>
           </div>
-        )}
-
-        {showPhotoGallery && (
-          <div
-            className="window"
-            onMouseDown={() => bringToFront('gallery')}
-            style={{
-              zIndex: zIndices.gallery,
-              width: '500px',
-              position: 'absolute',
-              top: '60px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
-            }}
-          >
-            <div className="title-bar">
-              <div className="title-bar-text" style={{ fontSize: '18px', fontWeight: 'bold' }}>
-                Photo Gallery
-              </div>
-              <div className="title-bar-controls">
-                <button onClick={() => setShowPhotoGallery(false)} aria-label="Close" />
-              </div>
+          <div style={{ padding: '1rem', textAlign: 'center' }}>
+            <img
+              src={`/photos/photo${currentPhotoIndex + 1}.jpg`}
+              alt={`Photo ${currentPhotoIndex + 1}`}
+              style={{
+                maxWidth: '100%',
+                maxHeight: '400px',
+                border: '2px solid black',
+                opacity: fadeTransition ? 0.3 : 1,
+                transition: 'opacity 0.3s ease',
+              }}
+            />
+            <div style={{ marginTop: '1rem' }}>
+              <button
+                onClick={() => {
+                  setFadeTransition(true);
+                  setTimeout(() => {
+                    setCurrentPhotoIndex((prev) => (prev === 0 ? photoCount - 1 : prev - 1));
+                    setFadeTransition(false);
+                  }, 100);
+                }}
+              >
+                ← Prev
+              </button>
+              <button
+                onClick={() => {
+                  setFadeTransition(true);
+                  setTimeout(() => {
+                    setCurrentPhotoIndex((prev) => (prev + 1) % photoCount);
+                    setFadeTransition(false);
+                  }, 100);
+                }}
+                style={{ marginLeft: '1rem' }}
+              >
+                Next →
+              </button>
             </div>
-            <div style={{ padding: '1rem', textAlign: 'center' }}>
-              <img
-                src={`/photos/photo${currentPhotoIndex + 1}.jpg`}
-                alt={`Photo ${currentPhotoIndex + 1}`}
-                style={{ maxWidth: '100%', maxHeight: '400px', border: '2px solid black' }}
-              />
-              <div style={{ marginTop: '1rem' }}>
-                <button onClick={() => setCurrentPhotoIndex((prev) => (prev === 0 ? photoCount - 1 : prev - 1))}>
-                  ← Prev
-                </button>
-                <button onClick={() => setCurrentPhotoIndex((prev) => (prev + 1) % photoCount)} style={{ marginLeft: '1rem' }}>
-                  Next →
-                </button>
-              </div>
-              <div style={{ marginTop: '0.5rem', fontFamily: 'Courier', fontSize: '14px', color: '#555' }}>
-                Photo {currentPhotoIndex + 1} of {photoCount}
-              </div>
+            <div style={{ marginTop: '0.5rem', fontFamily: 'Courier', fontSize: '14px', color: '#555' }}>
+              Photo {currentPhotoIndex + 1} of {photoCount}
             </div>
           </div>
-        )}
-
-        {showSoundPopup && (
-          <div
-            className="window"
-            onMouseDown={() => bringToFront('sound')}
-            style={{
-              zIndex: zIndices.sound,
-              width: '400px',
-              position: 'absolute',
-              top: '80px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
-            }}
-          >
-            <div className="title-bar">
-              <div className="title-bar-text" style={{ fontSize: '18px', fontWeight: 'bold' }}>
-                Sounds
-              </div>
-              <div className="title-bar-controls">
-                <button onClick={() => setShowSoundPopup(false)} aria-label="Close" />
-              </div>
-            </div>
-            <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
-              <p>
-                I work with digital and analog synthesizers, field recordings, and found objects to make ambient drones.
-                This space holds fragments from my sonic world:
-              </p>
-              <ul style={{ paddingLeft: '1rem', marginTop: '0.5rem' }}>
-                <li>
-                  🎵 
-                  <a href="https://terrestialhour.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-                    Listen on Bandcamp
-                  </a>
-                </li>
-                <li>
-                  🎤 
-                  <a href="https://kellyyan.notion.site/SOUNDS-b03b3ea597ed4bf6832160c230ec5942?source=copy_link" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-                    Watch performance documentation
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        )}
-
-{showVideoPopup && (
-          <div
-            className="window"
-            onMouseDown={() => bringToFront('video')}
-            style={{
-              zIndex: zIndices.video,
-              width: '400px',
-              position: 'absolute',
-              top: '80px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
-            }}
-          >
-            <div className="title-bar">
-              <div className="title-bar-text" style={{ fontSize: '18px', fontWeight: 'bold' }}>
-                Video
-              </div>
-              <div className="title-bar-controls">
-                <button onClick={() => setShowVideoPopup(false)} aria-label="Close" />
-              </div>
-            </div>
-            <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
-              <p>
-                I work with digital video, found footage, and analog film. </p><p>
-      
-                <a href="https://kellyyan.notion.site/VIDEOS-bb25bb9e99c948639f6b27038e481d04?source=copy_link" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-                  Watch here.
-                  </a>
-              </p>
-            </div>
-          </div>
-        )}
-
-      </div>
+        </div>
+      )}
     </div>
   );
 }
