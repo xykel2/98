@@ -257,7 +257,7 @@ export default function App() {
   transform: 'translate(-50%, -50%)',
   overflow: 'auto',
   boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
-  backgroundColor: 'white',
+  backgroundColor: 'grey',
   display: 'flex',
   flexDirection: 'column',
 }}
