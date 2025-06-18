@@ -121,7 +121,7 @@ export default function App() {
   return (
     <div
       style={{
-        backgroundImage: "url('/backgrounds/bg2.png')",
+        backgroundImage: "url('/backgrounds/bg3.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         minHeight: '100vh',
