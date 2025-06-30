@@ -440,8 +440,7 @@ export default function App() {
               <p> Design and Prototype for    <a href="https://artculturetourism.com/broadstreetstories/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                   Broad Street Stories</a> </p>
               <p> Advocacy for China Disposession Watch. Digital platform to come soon. </p>
-              <p> Photos for </p><p>
-      <a href="https://atlanticmills.ppsri.org/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+              <p> Photos for     <a href="https://atlanticmills.ppsri.org/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                 Atlantic Mills Anthology</a></p>
             </div>
           </div>
