@@ -366,6 +366,47 @@ export default function App() {
           </div>
         )}
 
+{showVideoPopup && (
+          <div
+            className="window"
+            onMouseDown={() => bringToFront('video')}
+         style={{
+  zIndex: zIndices.gallery,
+  width: '90vw',
+  maxWidth: '500px',
+  height: '80vh',
+  position: 'fixed',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  overflow: 'auto',
+  boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
+  backgroundColor: 'gainsboro',
+  display: 'flex',
+  flexDirection: 'column',
+}}
+
+          >
+            <div className="title-bar">
+              <div className="title-bar-text" style={{ fontSize: '18px', fontWeight: 'bold' }}>
+                Videos
+              </div>
+              <div className="title-bar-controls">
+                <button onClick={() => setShowVideoPopup(false)} aria-label="Close" />
+              </div>
+            </div>
+            <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
+              <p>
+                I work with digital video, found footage, and analog film. </p><p>
+      
+                <a href="https://kellyyan.notion.site/VIDEOS-bb25bb9e99c948639f6b27038e481d04?source=copy_link" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+                  Watch here.
+                  </a>
+              </p>
+            </div>
+          </div>
+        )}
+
 {showProjectPopup && (
           <div
             className="window"
@@ -396,48 +437,6 @@ export default function App() {
               </div>
             </div>
             <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
-              <p>
-                I work with digital video, found footage, and analog film. </p><p>
-      
-                <a href="https://kellyyan.notion.site/VIDEOS-bb25bb9e99c948639f6b27038e481d04?source=copy_link" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-                  Watch here.
-                  </a>
-              </p>
-            </div>
-          </div>
-        )}
-
-{showVideoPopup && (
-          <div
-            className="window"
-            onMouseDown={() => bringToFront('video')}
-         style={{
-  zIndex: zIndices.gallery,
-  width: '90vw',
-  maxWidth: '500px',
-  height: '80vh',
-  position: 'fixed',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  overflow: 'auto',
-  boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
-  backgroundColor: 'gainsboro',
-  display: 'flex',
-  flexDirection: 'column',
-}}
-
-          >
-            <div className="title-bar">
-              <div className="title-bar-text" style={{ fontSize: '18px', fontWeight: 'bold' }}>
-                Video
-              </div>
-              <div className="title-bar-controls">
-                <button onClick={() => setShowProjectPopup(false)} aria-label="Close" />
-              </div>
-            </div>
-            <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
-              <p> Here are some of the place-based projects I have been working on. </p>
               <p> Design and Prototype for    <a href="https://artculturetourism.com/broadstreetstories/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                   Broad Street Stories</a> </p>
               <p> Advocacy for China Disposession Watch. Digital platform to come soon. </p>
