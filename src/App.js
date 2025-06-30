@@ -7,6 +7,7 @@ export default function App() {
   const [showPhotoGallery, setShowPhotoGallery] = useState(false);
   const [showSoundPopup, setShowSoundPopup] = useState(false);
   const [showVideoPopup, setShowVideoPopup] = useState(false);
+  const [showProjectPopup, setShowProjectPopup] = useState(false)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const photoCount = 8;
   const [zIndices, setZIndices] = useState({
@@ -102,7 +103,12 @@ export default function App() {
         setShowVideoPopup(true);
         bringToFront('video');
       }
-    },    { icon: '/icons/resume.png', label: 'Resume', link: '#' },
+    },    { icon: '/icons/resume.png', 
+      label: 'Projects', 
+      onClick: () => {
+        setShowProjectPopup(true);
+        bringToFront('projects');
+      }},
     {
       icon: '/icons/folder.gif',
       label: 'Musing',
@@ -121,7 +127,7 @@ export default function App() {
   return (
     <div
       style={{
-        backgroundImage: "url('/backgrounds/bg3.png')",
+        backgroundImage: "url('/backgrounds/bg4.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         minHeight: '100vh',
@@ -360,6 +366,47 @@ export default function App() {
           </div>
         )}
 
+{showProjectPopup && (
+          <div
+            className="window"
+            onMouseDown={() => bringToFront('projects')}
+         style={{
+  zIndex: zIndices.gallery,
+  width: '90vw',
+  maxWidth: '500px',
+  height: '80vh',
+  position: 'fixed',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  overflow: 'auto',
+  boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
+  backgroundColor: 'gainsboro',
+  display: 'flex',
+  flexDirection: 'column',
+}}
+
+          >
+            <div className="title-bar">
+              <div className="title-bar-text" style={{ fontSize: '18px', fontWeight: 'bold' }}>
+                Projects
+              </div>
+              <div className="title-bar-controls">
+                <button onClick={() => setShowProjectPopup(false)} aria-label="Close" />
+              </div>
+            </div>
+            <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
+              <p>
+                I work with digital video, found footage, and analog film. </p><p>
+      
+                <a href="https://kellyyan.notion.site/VIDEOS-bb25bb9e99c948639f6b27038e481d04?source=copy_link" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+                  Watch here.
+                  </a>
+              </p>
+            </div>
+          </div>
+        )}
+
 {showVideoPopup && (
           <div
             className="window"
@@ -390,13 +437,13 @@ export default function App() {
               </div>
             </div>
             <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
-              <p>
-                I work with digital video, found footage, and analog film. </p><p>
-      
-                <a href="https://kellyyan.notion.site/VIDEOS-bb25bb9e99c948639f6b27038e481d04?source=copy_link" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-                  Watch here.
-                  </a>
-              </p>
+              <p> Here are some of the place-based projects I have been working on. </p>
+              <p> Design and Prototype for    <a href="https://artculturetourism.com/broadstreetstories/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+                  Broad Street Stories</a> </p>
+              <p> Advocacy for China Disposession Watch. Digital platform to come soon. </p>
+              <p> Photos for
+      <a href="https://atlanticmills.ppsri.org/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+                  Atlantic Mills Anthology</a></p>
             </div>
           </div>
         )}
