@@ -351,7 +351,7 @@ export default function App() {
               <ul style={{ paddingLeft: '1rem', marginTop: '0.5rem' }}>
                 <li>
                   🎵 
-                  <a href="https://terrestialhour.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+                  <a href="https://xykels.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                     Listen on Bandcamp
                   </a>
                 </li>
