@@ -114,6 +114,10 @@ export default function App() {
       label: 'Musing',
       link: 'https://dg-git-main-kels-projects-1630813e.vercel.app/',
     },
+    {icon:'/icons/web.gif',
+      label: 'aelrsty',
+      link: 'https://femishonuga.com/webring.html',
+    },
     {
       icon: '/icons/info.png',
       label: 'About',
