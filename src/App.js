@@ -90,7 +90,7 @@ export default function App() {
     },
     {
       icon: '/icons/sounds.gif',
-      label: 'Sound',
+      label: 'Sounds',
       onClick: () => {
         setShowSoundPopup(true);
         bringToFront('sound');
@@ -98,7 +98,7 @@ export default function App() {
     },
     {
       icon: '/icons/video.gif',
-      label: 'Video',
+      label: 'Videos',
       onClick: () => {
         setShowVideoPopup(true);
         bringToFront('video');
