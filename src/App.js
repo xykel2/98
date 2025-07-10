@@ -111,7 +111,7 @@ export default function App() {
       }},
     {
       icon: '/icons/folder.gif',
-      label: 'Musing',
+      label: 'Musings',
       link: 'https://dg-git-main-kels-projects-1630813e.vercel.app/',
     },
     {icon:'/icons/web.gif',
