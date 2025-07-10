@@ -81,7 +81,7 @@ export default function App() {
   const icons = [
     {
       icon: '/icons/time.gif',
-      label: 'Photography',
+      label: 'Images',
       onClick: () => {
         setShowPhotoGallery(true);
         setCurrentPhotoIndex(0);
