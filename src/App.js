@@ -9,7 +9,7 @@ export default function App() {
   const [showVideoPopup, setShowVideoPopup] = useState(false);
   const [showProjectPopup, setShowProjectPopup] = useState(false)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-  const photoCount = 8;
+  const photoCount = 13;
   const [zIndices, setZIndices] = useState({
     about: 1,
     gallery: 2,
