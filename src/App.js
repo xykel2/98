@@ -365,6 +365,15 @@ export default function App() {
                     Watch performance documentation
                   </a>
                 </li>
+                <li>
+                  🎧 
+                  <a href="https://onehourcleaner.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+                    Drones with bekki
+                  </a>
+                  <a href="https://open.spotify.com/track/44L7BBmZJsY0OAMIFuU7Jz?si=p_QvrXMpSL2lWH9lhME7Ig" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+                    Song with MorningClose
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
