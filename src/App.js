@@ -405,10 +405,12 @@ export default function App() {
             </div>
             <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
               <p>
-                I work with digital video, found footage, and analog film. </p><p>
-      
+                I work with digital video, found footage, and analog film. 
+                When you dream, do you see from your eyes or another body or a bodiless perspective? 
+                Do you hear non-diegetic music?
+                I wonder if people started dreaming differently after the invention of cinema. </p><p>
                 <a href="https://kellyyan.notion.site/VIDEOS-bb25bb9e99c948639f6b27038e481d04?source=copy_link" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-                  Dream with me in motion image sound here.
+                  Watch mine here.
                   </a>
               </p>
               </div>
