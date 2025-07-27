@@ -408,7 +408,7 @@ export default function App() {
                 I work with digital video, found footage, and analog film. </p><p>
       
                 <a href="https://kellyyan.notion.site/VIDEOS-bb25bb9e99c948639f6b27038e481d04?source=copy_link" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-                  Watch here.
+                  Dream with me in motion image sound here.
                   </a>
               </p>
               </div>
