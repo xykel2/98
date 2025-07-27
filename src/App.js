@@ -414,7 +414,7 @@ export default function App() {
               </div>
               <div>
               <video width="100%" height="auto" controls>
-                <source src="/video/5975.mp4" type="video/mp4" /></video>
+                <source src="/5975.mp4" type="video/mp4" /></video>
                 </div>
           </div>
         )}
