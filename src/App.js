@@ -368,8 +368,8 @@ export default function App() {
               </ul>
  <p> Currently making drones with bekki as <a href= "https://onehourcleaner.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
               One Hour Cleaner.</a> </p>
-  <p> My vocals also appear in <a href="https://www.portalrental.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500"> Portal Rental's upcoming albulm </a>
-  , and <a href= "https://open.spotify.com/track/44L7BBmZJsY0OAMIFuU7Jz?si=p_QvrXMpSL2lWH9lhME7Ig" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500"> Morning Close's Rendezvous</a>. </p>
+  <p> My vocals also appear in <a href="https://www.portalrental.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500"> Portal Rental's upcoming albulm</a>
+  , and <a href= "https://open.spotify.com/track/44L7BBmZJsY0OAMIFuU7Jz?si=p_QvrXMpSL2lWH9lhME7Ig" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500"> Morning Close' Rendezvous</a>. </p>
             </div>
           </div>
         )}
@@ -411,6 +411,11 @@ export default function App() {
                   Watch here.
                   </a>
               </p>
+
+              <video width="100%" height="auto" controls>
+  <source src="/video/5975.mp4" type="video/mp4" />
+</video>
+
             </div>
           </div>
         )}
