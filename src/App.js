@@ -349,7 +349,7 @@ export default function App() {
     }}
   />
   <p>
-                I work with digital and analog synthesizers, field recordings, and found objects to make ambient drones.
+                I work with digital and analog synthesizers, field recordings, voice, and anything my friends lend me.
                 This space holds fragments from my sonic world:
               </p>
               <ul style={{ paddingLeft: '1rem', marginTop: '0.5rem' }}>
@@ -366,7 +366,7 @@ export default function App() {
                   </a>
                 </li>
               </ul>
- <p> Currently making drones with bekki as <a href= "https://onehourcleaner.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+ <p> Listen to my harsh noise and dark ambient project with bekki <a href= "https://onehourcleaner.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
               One Hour Cleaner.</a> </p>
   <p> My vocals also appear in <a href="https://www.portalrental.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500"> Portal Rental's upcoming albulm</a>
   , and <a href= "https://open.spotify.com/track/44L7BBmZJsY0OAMIFuU7Jz?si=p_QvrXMpSL2lWH9lhME7Ig" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500"> Morning Close' Rendezvous</a>. </p>
