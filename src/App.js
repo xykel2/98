@@ -368,6 +368,8 @@ export default function App() {
               </ul>
  <p> Listen to my harsh noise and dark ambient project with bekki <a href= "https://onehourcleaner.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
               One Hour Cleaner.</a> </p>
+ <p> and this awesome mixtape of Providence experimental music <a href= "https://alter-diy.bandcamp.com/album/altercomp-ii-red-season" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+              ALTERCOMP II.</a> </p>
   <p> My vocals also appear in <a href="https://www.portalrental.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500"> Portal Rental's upcoming albulm</a>
   , and <a href= "https://open.spotify.com/track/44L7BBmZJsY0OAMIFuU7Jz?si=p_QvrXMpSL2lWH9lhME7Ig" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500"> Morning Close' Rendezvous</a>. </p>
             </div>
