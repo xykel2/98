@@ -238,7 +238,7 @@ export default function App() {
             <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
               <p>Xinyu Kelly Yan is a <a href="https://www.theguardian.com/cities/2016/jul/29/female-flaneur-women-reclaim-streets" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">flaneuse</a> studying urban planning at GSAPP with a BA in anthropology and urban studies from Brown. </p>
               <p>She has been roaming the streets, roofs, and ruins of cities while looking for Shanghai elsewhere since 2001.</p>
-              <p>Currently falling in love with the world and nurturing her <a href="https://www.are.na/xinyu-yan/channels" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">fascinations</a> in all things place-based, audiovisual, and embodied.</p>
+              <p>Currently falling in love with the world and nurturing her <a href="https://www.are.na/kelly-xinyu-yan/channels" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">fascinations</a> in all things place-based, audiovisual, and embodied.</p>
               <img
     src="/me.jpg"
     alt="Portrait of Xinyu Kelly Yan"
