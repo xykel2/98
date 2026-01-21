@@ -236,7 +236,7 @@ export default function App() {
               </div>
             </div>
             <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
-              <p>Xinyu Kelly Yan is a <a href="https://www.theguardian.com/cities/2016/jul/29/female-flaneur-women-reclaim-streets" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">flaneuse</a> studying urban planning at GSAPP with a BA in anthropology and urban studies from Brown. </p>
+              <p>Xinyu Kelly Yan is studying urban planning at GSAPP with a BA in anthropology and urban studies from Brown. </p>
               <p>She has been roaming the streets, roofs, and ruins of cities while looking for Shanghai elsewhere since 2001.</p>
               <p>Currently falling in love with the world and nurturing her <a href="https://www.are.na/kelly-xinyu-yan/channels" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">fascinations</a> in all things place-based, audiovisual, and embodied.</p>
               <img
@@ -349,8 +349,11 @@ export default function App() {
     }}
   />
   <p>
-                I work with digital and analog synthesizers, field recordings, voice, and anything my friends lend me.
-                This space holds fragments from my sonic world:
+                I work with digital and analog synthesizers, field recordings, voice, and any objects my friends lend me. 
+                Every Sunday night 11pm-midnight EST you can catch me on the airwaves of New York City playing sounds from Eastern Europe, East and Central Asisa. Tune in at 
+                <a href="https://wkcr.org" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+                    WKCR 89.9FM
+                  </a>
               </p>
               <ul style={{ paddingLeft: '1rem', marginTop: '0.5rem' }}>
                 <li>
@@ -366,7 +369,7 @@ export default function App() {
                   </a>
                 </li>
               </ul>
- <p> Listen to my harsh noise and dark ambient project with bekki <a href= "https://onehourcleaner.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+ <p> Some collaborative work include a harsh noise and dark ambient project with bekki <a href= "https://onehourcleaner.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
               One Hour Cleaner</a> and this awesome mixtape of Providence experimental music <a href= "https://alter-diy.bandcamp.com/album/altercomp-ii-red-season" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
               ALTERCOMP II.</a> </p>
   <p> My vocals also appear in <a href="https://www.portalrental.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500"> Portal Rental's upcoming albulm</a>
@@ -454,7 +457,8 @@ export default function App() {
             <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
               <p> Design and Prototype for    <a href="https://artculturetourism.com/broadstreetstories/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                   Broad Street Stories</a> </p>
-              <p> Advocacy for China Disposession Watch. Digital platform to come soon. </p>
+              <p> Advocacy and Research for <a href="https://chinadispossessionwatch.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+                  China Dispossession Watch</a> </p>
               <p> Photos for <a href="https://atlanticmills.ppsri.org/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
               Atlantic Mills Anthology</a></p>
             </div>
