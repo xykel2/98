@@ -369,7 +369,7 @@ export default function App() {
                   </a>
                 </li>
               </ul>
- <p> Some collaborative work include a harsh noise and dark ambient project with bekki <a href= "https://onehourcleaner.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+              <p> Some collaborative work include a harsh noise and dark ambient project with bekki <a href= "https://onehourcleaner.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
               One Hour Cleaner</a> and this awesome mixtape of Providence experimental music <a href= "https://alter-diy.bandcamp.com/album/altercomp-ii-red-season" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
               ALTERCOMP II.</a> </p>
   <p> My vocals also appear in <a href="https://www.portalrental.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500"> Portal Rental's upcoming albulm</a>
