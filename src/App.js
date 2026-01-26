@@ -286,8 +286,8 @@ export default function App() {
             </div>
             <div style={{ padding: '1rem', textAlign: 'center' }}>
               <img
-                src={`/photos/photo${currentPhotoIndex + 1}.jpg`}
-                alt={`Photo ${currentPhotoIndex + 1}`}
+                src={`/photos/${currentPhotoIndex + 1}.jpg`}
+                alt={` ${currentPhotoIndex + 1}`}
                 style={{ maxWidth: '100%', maxHeight: '400px', border: '2px solid black' }}
               />
               <div style={{ marginTop: '1rem' }}>
