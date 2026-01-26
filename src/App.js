@@ -352,7 +352,7 @@ export default function App() {
                 I work with digital and analog synthesizers, field recordings, voice, and any objects my friends lend me. 
                 Every Sunday night 11pm-midnight EST you can catch me on the airwaves of New York City playing sounds from Eastern Europe, East and Central Asisa. Tune in at  
                 <a href="https://wkcr.org" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-                    WKCR 89.9FM
+                     WKCR 89.9FM
                   </a>
               </p>
               <ul style={{ paddingLeft: '1rem', marginTop: '0.5rem' }}>
