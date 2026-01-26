@@ -349,12 +349,12 @@ export default function App() {
     }}
   />
   <p>
-                I work with digital and analog synthesizers, field recordings, voice, and any objects my friends lend me. 
-                Every Sunday night 11pm-midnight EST you can catch me on the airwaves of New York City playing sounds from Eastern Europe, East and Central Asisa. Tune in at  
-                <a href="https://wkcr.org" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-                     WKCR 89.9FM
-                  </a>
-              </p>
+    I work with digital and analog synthesizers, field recordings, voice, and any objects my friends lend me. 
+    Every Sunday night 11pm-midnight EST you can catch me on the airwaves of 
+    New York City playing sounds from Eastern Europe, East and Central Asisa. 
+    Tune in at <a href="https://wkcr.org" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+    WKCR 89.9FM</a>
+    </p>
               <ul style={{ paddingLeft: '1rem', marginTop: '0.5rem' }}>
                 <li>
                   🎵 
@@ -454,6 +454,8 @@ export default function App() {
               </div>
             </div>
             <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
+              <p> Explore the spatial distribution and funding flow of arts and culture non-profits in New York City on <a href="https://xy2700-tech.github.io/informatics/index.html/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+                  this atlas </a> </p>
               <p> Design and Prototype for    <a href="https://artculturetourism.com/broadstreetstories/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                   Broad Street Stories</a> </p>
               <p> Advocacy and Research for <a href="https://chinadispossessionwatch.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
