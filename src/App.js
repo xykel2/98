@@ -457,7 +457,10 @@ export default function App() {
             <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
               <p> Where is the cheap art in new york city? Read my <a href="https://xy2700-tech.github.io/informatics/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                   NYC Non-profit Arts & Culture Atlas </a> </p>
-              <p> How can you nurture a childs curiosity with the built envrionment? Grab some crayons, paper, and camera to follow the prompt cards I designed and prototyped for    <a href="https://artculturetourism.com/broadstreetstories/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+              <p> How can analog and digital algorithms create generative systems of play? Reaed my research and documentation of my ongoing <a href="https://kellyyan.notion.site/25-26-residency-movement-lab-2a75e3e543388043905ad43dd06f587b?source=copy_link" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+                  residency at Barnard Movement Lab </a> </p>
+              <p> What is going on with the data center boom and what can we do about it? Scroll through my teams website to come </p>
+              <p> How can you nurture a childs curiosity in the built envrionment? Grab some crayons, paper, and camera to follow the prompt cards I designed and prototyped for    <a href="https://artculturetourism.com/broadstreetstories/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                   Broad Street Stories</a> </p>
               <p> What are the lived experiences of urban displacement in China? Read my advocacy and research for <a href="https://chinadispossessionwatch.com/*/directory" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                   China Dispossession Watch</a> </p>
