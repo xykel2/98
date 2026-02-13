@@ -459,7 +459,7 @@ export default function App() {
                   this atlas </a> </p>
               <p> Design and Prototype for    <a href="https://artculturetourism.com/broadstreetstories/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                   Broad Street Stories</a> </p>
-              <p> Advocacy and Research for <a href="https://chinadispossessionwatch.com/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+              <p> Advocacy and Research for <a href="https://chinadispossessionwatch.com/*/directory" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                   China Dispossession Watch</a> </p>
               <p> Photos for <a href="https://atlanticmills.ppsri.org/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
               Atlantic Mills Anthology</a></p>
