@@ -507,7 +507,7 @@ export default function App() {
           'Projects',
           <>
             <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginTop: '1rem', marginBottom: '0.5rem' }}>
-              Data Visualization
+              Data
             </h2>
             <p>
               Where is the cheap art in new york city? Read my{' '}
@@ -525,17 +525,17 @@ export default function App() {
             </p>
 
             <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
-              Design
+              Community
             </h2>
             <p>
-              How can you nurture a child's curiosity in the built environment? Grab some crayons, paper, and camera to follow the prompt cards I designed and prototyped for{' '}
+              What are the lived experiences of urban displacement in China? Read my advocacy and research for{' '}
               <a 
-                href="https://artculturetourism.com/broadstreetstories/" 
+                href="https://chinadispossessionwatch.com/*/directory" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="underline text-blue-300 hover:text-blue-500"
               >
-                Broad Street Stories
+                China Dispossession Watch
               </a>
             </p>
             <p>
@@ -551,8 +551,19 @@ export default function App() {
             </p>
 
             <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
-              Research
+              Play
             </h2>
+            <p>
+              How can you nurture a child's curiosity in the built environment? Grab some crayons, paper, and camera to follow the prompt cards I designed and prototyped for{' '}
+              <a 
+                href="https://artculturetourism.com/broadstreetstories/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="underline text-blue-300 hover:text-blue-500"
+              >
+                Broad Street Stories
+              </a>
+            </p>
             <p>
               How can analog and digital algorithms create generative systems of play? Read my research and documentation of my ongoing{' '}
               <a 
@@ -562,17 +573,6 @@ export default function App() {
                 className="underline text-blue-300 hover:text-blue-500"
               >
                 residency at Barnard Movement Lab
-              </a>
-            </p>
-            <p>
-              What are the lived experiences of urban displacement in China? Read my advocacy and research for{' '}
-              <a 
-                href="https://chinadispossessionwatch.com/*/directory" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="underline text-blue-300 hover:text-blue-500"
-              >
-                China Dispossession Watch
               </a>
             </p>
           </>,
