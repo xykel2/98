@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import '98.css';
 
 export default function App() {
@@ -55,7 +55,7 @@ export default function App() {
     }
   };
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = useCallback((e) => {
     if (dragging.active) {
       setWindowStates(prev => ({
         ...prev,
@@ -80,12 +80,12 @@ export default function App() {
         }
       }));
     }
-  };
+  }, [dragging, resizing]);
 
-  const handleMouseUp = () => {
+  const handleMouseUp = useCallback(() => {
     setDragging({ active: false, window: null, offsetX: 0, offsetY: 0 });
     setResizing({ active: false, window: null, startX: 0, startY: 0, startWidth: 0, startHeight: 0 });
-  };
+  }, []);
 
   // Resize handlers
   const handleResizeStart = (e, windowKey) => {
@@ -110,7 +110,7 @@ export default function App() {
         window.removeEventListener('mouseup', handleMouseUp);
       };
     }
-  }, [dragging, resizing]);
+  }, [dragging.active, resizing.active, handleMouseMove, handleMouseUp]);
 
   useEffect(() => {
     if (audioRef.current) return;
@@ -388,7 +388,7 @@ export default function App() {
             <p>Currently falling in love with the world and nurturing her <a href="https://www.are.na/kelly-xinyu-yan/channels" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">fascinations</a> in all things place-based, audiovisual, and embodied.</p>
             <img
               src="/me.jpg"
-              alt="Portrait of Xinyu Kelly Yan"
+              alt="Xinyu Kelly Yan"
               style={{
                 width: '100%',
                 maxWidth: '300px',
@@ -410,7 +410,7 @@ export default function App() {
             <div style={{ textAlign: 'center' }}>
               <img
                 src={`/photos/${currentPhotoIndex + 1}.jpg`}
-                alt={`Photo ${currentPhotoIndex + 1}`}
+                alt={`Gallery ${currentPhotoIndex + 1}`}
                 style={{ maxWidth: '100%', maxHeight: '400px', border: '2px solid black' }}
               />
               <div style={{ marginTop: '1rem' }}>
@@ -436,7 +436,7 @@ export default function App() {
           <>
             <img
               src="/serge.png"
-              alt="Portrait of Serge at RISD"
+              alt="Serge at RISD"
               style={{
                 width: '100%',
                 maxWidth: '300px',
