@@ -20,13 +20,22 @@ export default function App() {
   const [topZIndex, setTopZIndex] = useState(5);
   const [hoveredIcon, setHoveredIcon] = useState(null);
 
+  // Get initial window size based on screen size
+  const getInitialWindowSize = () => {
+    const isMobile = window.innerWidth <= 768;
+    return {
+      width: isMobile ? window.innerWidth * 0.95 : 500,
+      height: isMobile ? window.innerHeight * 0.85 : 600,
+    };
+  };
+
   // Window positions and sizes
   const [windowStates, setWindowStates] = useState({
-    about: { x: 0, y: 0, width: 500, height: 600 },
-    gallery: { x: 0, y: 0, width: 500, height: 600 },
-    sound: { x: 0, y: 0, width: 500, height: 600 },
-    video: { x: 0, y: 0, width: 500, height: 600 },
-    projects: { x: 0, y: 0, width: 500, height: 600 },
+    about: { x: 0, y: 0, ...getInitialWindowSize() },
+    gallery: { x: 0, y: 0, ...getInitialWindowSize() },
+    sound: { x: 0, y: 0, ...getInitialWindowSize() },
+    video: { x: 0, y: 0, ...getInitialWindowSize() },
+    projects: { x: 0, y: 0, ...getInitialWindowSize() },
   });
 
   const [dragging, setDragging] = useState({ active: false, window: null, offsetX: 0, offsetY: 0 });
@@ -34,6 +43,27 @@ export default function App() {
 
   const audioRef = useRef(null);
   const [isMuted, setIsMuted] = useState(false);
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      const newSize = getInitialWindowSize();
+      setWindowStates(prev => {
+        const updated = {};
+        Object.keys(prev).forEach(key => {
+          updated[key] = {
+            ...prev[key],
+            width: Math.min(prev[key].width, newSize.width),
+            height: Math.min(prev[key].height, newSize.height),
+          };
+        });
+        return updated;
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const bringToFront = (key) => {
     const newTop = topZIndex + 1;
@@ -43,6 +73,9 @@ export default function App() {
 
   // Dragging handlers
   const handleMouseDown = (e, windowKey) => {
+    // Disable dragging on mobile
+    if (window.innerWidth <= 768) return;
+    
     if (e.target.closest('.title-bar') && !e.target.closest('.title-bar-controls')) {
       const rect = e.currentTarget.getBoundingClientRect();
       setDragging({
@@ -89,6 +122,9 @@ export default function App() {
 
   // Resize handlers
   const handleResizeStart = (e, windowKey) => {
+    // Disable resizing on mobile
+    if (window.innerWidth <= 768) return;
+    
     e.stopPropagation();
     setResizing({
       active: true,
@@ -222,6 +258,7 @@ export default function App() {
     if (!isVisible) return null;
 
     const state = windowStates[windowKey];
+    const isMobile = window.innerWidth <= 768;
 
     return (
       <div
@@ -236,9 +273,9 @@ export default function App() {
           width: `${state.width}px`,
           height: `${state.height}px`,
           position: 'fixed',
-          top: state.y === 0 ? '50%' : `${state.y}px`,
+          top: state.y === 0 ? (isMobile ? '2.5%' : '50%') : `${state.y}px`,
           left: state.x === 0 ? '50%' : `${state.x}px`,
-          transform: state.x === 0 && state.y === 0 ? 'translate(-50%, -50%)' : 'none',
+          transform: state.x === 0 && state.y === 0 ? (isMobile ? 'translateX(-50%)' : 'translate(-50%, -50%)') : 'none',
           overflow: 'hidden',
           boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
           backgroundColor: 'gainsboro',
@@ -249,7 +286,7 @@ export default function App() {
       >
         <div 
           className="title-bar" 
-          style={{ cursor: 'grab' }}
+          style={{ cursor: isMobile ? 'default' : 'grab' }}
           onMouseDown={(e) => handleMouseDown(e, windowKey)}
         >
           <div className="title-bar-text" style={{ fontSize: '18px', fontWeight: 'bold' }}>
@@ -269,19 +306,21 @@ export default function App() {
         }}>
           {content}
         </div>
-        {/* Resize handle */}
-        <div
-          onMouseDown={(e) => handleResizeStart(e, windowKey)}
-          style={{
-            position: 'absolute',
-            right: 0,
-            bottom: 0,
-            width: '20px',
-            height: '20px',
-            cursor: 'nwse-resize',
-            background: 'linear-gradient(135deg, transparent 0%, transparent 50%, #808080 50%, #808080 100%)',
-          }}
-        />
+        {/* Resize handle - hidden on mobile */}
+        {!isMobile && (
+          <div
+            onMouseDown={(e) => handleResizeStart(e, windowKey)}
+            style={{
+              position: 'absolute',
+              right: 0,
+              bottom: 0,
+              width: '20px',
+              height: '20px',
+              cursor: 'nwse-resize',
+              background: 'linear-gradient(135deg, transparent 0%, transparent 50%, #808080 50%, #808080 100%)',
+            }}
+          />
+        )}
       </div>
     );
   };
