@@ -455,13 +455,13 @@ export default function App() {
               </div>
             </div>
             <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
-              <p> Explore the spatial distribution and funding flow of arts and culture non-profits in New York City on <a href="https://xy2700-tech.github.io/informatics/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-                  this atlas </a> </p>
-              <p> Design and Prototype for    <a href="https://artculturetourism.com/broadstreetstories/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+              <p> Where is the cheap art in new york city? Read my <a href="https://xy2700-tech.github.io/informatics/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+                  NYC Non-profit Arts & Culture Atlas </a> </p>
+              <p> How can you nurture a childs curiosity with the built envrionment? Grab some crayons, paper, and camera to follow the prompt cards I designed and prototyped for    <a href="https://artculturetourism.com/broadstreetstories/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                   Broad Street Stories</a> </p>
-              <p> Advocacy and Research for <a href="https://chinadispossessionwatch.com/*/directory" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+              <p> What are the lived experiences of urban displacement in China? Read my advocacy and research for <a href="https://chinadispossessionwatch.com/*/directory" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                   China Dispossession Watch</a> </p>
-              <p> Photos for <a href="https://atlanticmills.ppsri.org/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+              <p> What is in the belly of that big mill in Providence? Checkout my photos for <a href="https://atlanticmills.ppsri.org/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
               Atlantic Mills Anthology</a></p>
             </div>
           </div>
