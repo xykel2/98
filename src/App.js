@@ -437,7 +437,7 @@ export default function App() {
                 border: '2px solid black'
               }}
             />
-            <p> art -> Imgaes, Sounds, Videos; academic and professional -> live under Projects; thoughts -> Musings. </p>
+            <p> art -> Imgaes, Sounds, Videos; academic and professional -> Projects; thoughts -> Musings. </p>
             <p> While this website works as a continually evolving digital archive of my work, there are more transient and embodied experiences of becoming myself that refuse documentation. Find me in real life dancing, singing, sensing, remembering, daydremaing, and living.  </p>
               
 
