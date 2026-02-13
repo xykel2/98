@@ -455,7 +455,7 @@ export default function App() {
               </div>
             </div>
             <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
-              <p> Explore the spatial distribution and funding flow of arts and culture non-profits in New York City on <a href="https://xy2700-tech.github.io/informatics/index.html/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
+              <p> Explore the spatial distribution and funding flow of arts and culture non-profits in New York City on <a href="https://xy2700-tech.github.io/informatics/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                   this atlas </a> </p>
               <p> Design and Prototype for    <a href="https://artculturetourism.com/broadstreetstories/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
                   Broad Street Stories</a> </p>
