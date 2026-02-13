@@ -424,53 +424,109 @@ export default function App() {
                 </div>
           </div>
         )}
-
 {showProjectPopup && (
-          <div
-            className="window"
-            onMouseDown={() => bringToFront('projects')}
-         style={{
-  zIndex: zIndices.gallery,
-  width: '90vw',
-  maxWidth: '500px',
-  height: '80vh',
-  position: 'fixed',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  overflow: 'auto',
-  boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
-  backgroundColor: 'gainsboro',
-  display: 'flex',
-  flexDirection: 'column',
-}}
-
-          >
-            <div className="title-bar">
-              <div className="title-bar-text" style={{ fontSize: '18px', fontWeight: 'bold' }}>
-                Projects
-              </div>
-              <div className="title-bar-controls">
-                <button onClick={() => setShowProjectPopup(false)} aria-label="Close" />
-              </div>
-            </div>
-            <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
-              <p> Where is the cheap art in new york city? Read my <a href="https://xy2700-tech.github.io/informatics/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-                  NYC Non-profit Arts & Culture Atlas </a> </p>
-              <p> How can analog and digital algorithms create generative systems of play? Reaed my research and documentation of my ongoing <a href="https://kellyyan.notion.site/25-26-residency-movement-lab-2a75e3e543388043905ad43dd06f587b?source=copy_link" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-                  residency at Barnard Movement Lab </a> </p>
-              <p> What is going on with the data center boom and what can we do about it? Scroll through my teams website to come </p>
-              <p> How can you nurture a childs curiosity in the built envrionment? Grab some crayons, paper, and camera to follow the prompt cards I designed and prototyped for    <a href="https://artculturetourism.com/broadstreetstories/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-                  Broad Street Stories</a> </p>
-              <p> What are the lived experiences of urban displacement in China? Read my advocacy and research for <a href="https://chinadispossessionwatch.com/*/directory" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-                  China Dispossession Watch</a> </p>
-              <p> What is in the belly of that big mill in Providence? Checkout my photos for <a href="https://atlanticmills.ppsri.org/" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
-              Atlantic Mills Anthology</a></p>
-            </div>
-          </div>
-        )}
-
+  <div
+    className="window"
+    onMouseDown={() => bringToFront('projects')}
+    style={{
+      zIndex: zIndices.gallery,
+      width: '90vw',
+      maxWidth: '500px',
+      height: '80vh',
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      overflow: 'auto',
+      boxShadow: '5px 5px 10px rgba(0,0,0,0.3)',
+      backgroundColor: 'gainsboro',
+      display: 'flex',
+      flexDirection: 'column',
+    }}
+  >
+    <div className="title-bar">
+      <div className="title-bar-text" style={{ fontSize: '18px', fontWeight: 'bold' }}>
+        Projects
+      </div>
+      <div className="title-bar-controls">
+        <button onClick={() => setShowProjectPopup(false)} aria-label="Close" />
       </div>
     </div>
-  );
-}
+    <div style={{ fontFamily: 'Courier', padding: '1rem', fontSize: '16px', lineHeight: '1.5' }}>
+      
+      {/* Data Visualization Section */}
+      <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginTop: '1rem', marginBottom: '0.5rem' }}>
+        Data Visualization
+      </h2>
+      <p>
+        Where is the cheap art in new york city? Read my{' '}
+        <a 
+          href="https://xy2700-tech.github.io/informatics/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="underline text-blue-300 hover:text-blue-500"
+        >
+          NYC Non-profit Arts & Culture Atlas
+        </a>
+      </p>
+      <p>
+        What is going on with the data center boom and what can we do about it? Scroll through my team's website to come
+      </p>
+
+      {/* Design Section */}
+      <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+        Design
+      </h2>
+      <p>
+        How can you nurture a child's curiosity in the built environment? Grab some crayons, paper, and camera to follow the prompt cards I designed and prototyped for{' '}
+        <a 
+          href="https://artculturetourism.com/broadstreetstories/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="underline text-blue-300 hover:text-blue-500"
+        >
+          Broad Street Stories
+        </a>
+      </p>
+      <p>
+        What is in the belly of that big mill in Providence? Checkout my photos for{' '}
+        <a 
+          href="https://atlanticmills.ppsri.org/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="underline text-blue-300 hover:text-blue-500"
+        >
+          Atlantic Mills Anthology
+        </a>
+      </p>
+
+      {/* Research Section */}
+      <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+        Research
+      </h2>
+      <p>
+        How can analog and digital algorithms create generative systems of play? Read my research and documentation of my ongoing{' '}
+        <a 
+          href="https://kellyyan.notion.site/25-26-residency-movement-lab-2a75e3e543388043905ad43dd06f587b?source=copy_link" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="underline text-blue-300 hover:text-blue-500"
+        >
+          residency at Barnard Movement Lab
+        </a>
+      </p>
+      <p>
+        What are the lived experiences of urban displacement in China? Read my advocacy and research for{' '}
+        <a 
+          href="https://chinadispossessionwatch.com/*/directory" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="underline text-blue-300 hover:text-blue-500"
+        >
+          China Dispossession Watch
+        </a>
+      </p>
+
+    </div>
+  </div>
+)}
