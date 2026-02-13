@@ -530,7 +530,7 @@ export default function App() {
             <p>
               What are the lived experiences of urban displacement in China? Read my advocacy and research for{' '}
               <a 
-                href="https://chinadispossessionwatch.com/*/directory" 
+                href="https://chinadispossessionwatch.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="underline text-blue-300 hover:text-blue-500"
@@ -554,7 +554,7 @@ export default function App() {
               Play
             </h2>
             <p>
-              How can you nurture a child's curiosity in the built environment? Grab some crayons, paper, and camera to follow the prompt cards I designed and prototyped for{' '}
+              How can you nurture a childs curiosity in the built environment? Grab some crayons, paper, and camera to follow the prompt cards I designed and prototyped for{' '}
               <a 
                 href="https://artculturetourism.com/broadstreetstories/" 
                 target="_blank" 
