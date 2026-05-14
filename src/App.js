@@ -1,6 +1,19 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import '98.css';
 
+// Scroll-triggered phrases that appear as the user scrolls down
+const SCROLL_PHRASES = [
+  { text: "roaming the streets, roofs, and ruins", threshold: 0.08 },
+  { text: "looking for Shanghai elsewhere", threshold: 0.18 },
+  { text: "falling in love with the world", threshold: 0.30 },
+  { text: "place-based, audiovisual, embodied", threshold: 0.42 },
+  { text: "dancing, singing, sensing, remembering", threshold: 0.55 },
+  { text: "daydreaming and living", threshold: 0.68 },
+  { text: "find me in real life", threshold: 0.82 },
+];
+
+const BACKGROUND = '/backgrounds/bg4.png';
+
 export default function App() {
   const [showAbout, setShowAbout] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
@@ -8,6 +21,8 @@ export default function App() {
   const [showSoundPopup, setShowSoundPopup] = useState(false);
   const [showVideoPopup, setShowVideoPopup] = useState(false);
   const [showProjectPopup, setShowProjectPopup] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [visiblePhrases, setVisiblePhrases] = useState([]);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const photoCount = 13;
   const [zIndices, setZIndices] = useState({
@@ -147,6 +162,32 @@ export default function App() {
       };
     }
   }, [dragging.active, resizing.active, handleMouseMove, handleMouseUp]);
+
+  // Track scroll progress and reveal phrases
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+      setScrollProgress(progress);
+
+      const nowVisible = SCROLL_PHRASES
+        .filter(p => progress >= p.threshold)
+        .map(p => p.text);
+      setVisiblePhrases(nowVisible);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Interpolate CSS filters based on scroll: normal → dark, desaturated, slightly blurred
+  const p = scrollProgress;
+  const brightness = 1 - p * 0.55;       // 1.0 → 0.45
+  const saturate   = 1 - p * 0.85;       // 1.0 → 0.15  (near grayscale)
+  const blur       = p * 4;              // 0px → 4px
+  const contrast   = 1 + p * 0.25;      // 1.0 → 1.25 (slightly punchier as it darkens)
+  const bgFilter   = `brightness(${brightness.toFixed(3)}) saturate(${saturate.toFixed(3)}) contrast(${contrast.toFixed(3)}) blur(${blur.toFixed(2)}px)`;
 
   useEffect(() => {
     if (audioRef.current) return;
@@ -328,14 +369,70 @@ export default function App() {
   return (
     <div
       style={{
-        backgroundImage: "url('/backgrounds/bg4.png')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        minHeight: '100vh',
+        minHeight: '400vh',
         padding: '2rem',
         position: 'relative',
+        backgroundColor: 'black',
       }}
     >
+      {/* Fixed background layer with scroll-driven filter — oversized to prevent blur edge clipping */}
+      <div style={{
+        position: 'fixed',
+        inset: '-20px',
+        backgroundImage: `url('${BACKGROUND}')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        filter: bgFilter,
+        zIndex: 0,
+        willChange: 'filter',
+      }} />
+      {/* Floating scroll phrases */}
+      <div style={{ position: 'fixed', bottom: '6rem', right: '2rem', zIndex: 9998, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.5rem', pointerEvents: 'none' }}>
+        {SCROLL_PHRASES.map((phrase, i) => (
+          <div
+            key={phrase.text}
+            style={{
+              fontFamily: 'Courier New, monospace',
+              fontSize: '13px',
+              color: 'white',
+              textShadow: '0 0 8px rgba(0,0,0,0.9), 1px 1px 0 black',
+              opacity: visiblePhrases.includes(phrase.text) ? 1 : 0,
+              transform: visiblePhrases.includes(phrase.text) ? 'translateX(0)' : 'translateX(30px)',
+              transition: 'opacity 0.7s ease, transform 0.7s ease',
+              transitionDelay: `${i * 0.05}s`,
+              letterSpacing: '0.05em',
+            }}
+          >
+            — {phrase.text}
+          </div>
+        ))}
+      </div>
+
+      {/* Scroll hint at bottom of viewport */}
+      {scrollProgress < 0.05 && (
+        <div style={{
+          position: 'fixed',
+          bottom: '3.5rem',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 9998,
+          fontFamily: 'Courier New, monospace',
+          fontSize: '12px',
+          color: 'white',
+          textShadow: '1px 1px 0 black',
+          animation: 'fadeUpDown 2s ease-in-out infinite',
+          pointerEvents: 'none',
+        }}>
+          ↓ scroll ↓
+        </div>
+      )}
+
+      <style>{`
+        @keyframes fadeUpDown {
+          0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
+          50% { opacity: 1; transform: translateX(-50%) translateY(-6px); }
+        }
+      `}</style>
       <div
         className="window"
         style={{
@@ -385,6 +482,8 @@ export default function App() {
           gap: '0.5rem',
           maxWidth: '800px',
           margin: '0 auto',
+          position: 'relative',
+          zIndex: 1,
         }}
       >
         {icons.map((item, idx) => (
