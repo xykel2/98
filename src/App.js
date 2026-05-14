@@ -3,13 +3,13 @@ import '98.css';
 
 // Scroll-triggered phrases that appear as the user scrolls down
 const SCROLL_PHRASES = [
-  { text: "roaming the streets, roofs, and ruins", threshold: 0.08 },
-  { text: "looking for Shanghai elsewhere", threshold: 0.18 },
-  { text: "falling in love with the world", threshold: 0.30 },
-  { text: "place-based, audiovisual, embodied", threshold: 0.42 },
-  { text: "dancing, singing, sensing, remembering", threshold: 0.55 },
-  { text: "daydreaming and living", threshold: 0.68 },
-  { text: "find me in real life", threshold: 0.82 },
+  { text: "While this website works as a continually evolving digital archive", threshold: 0.08 },
+  { text: "there are more impermanent and embodied experiences", threshold: 0.18 },
+  { text: "of becoming myself", threshold: 0.30 },
+  { text: "that refuse documentation", threshold: 0.42 },
+  { text: "So find me in real life", threshold: 0.55 },
+  { text: "dancing, singing, sensing", threshold: 0.68 },
+  { text: "remembering, daydreaming, and living", threshold: 0.82 },
 ];
 
 const BACKGROUND = '/backgrounds/bg4.png';
@@ -403,7 +403,7 @@ export default function App() {
               letterSpacing: '0.05em',
             }}
           >
-            — {phrase.text}
+           {phrase.text}
           </div>
         ))}
       </div>
@@ -535,9 +535,7 @@ export default function App() {
                 margin: '0 auto 1rem auto',
                 border: '2px solid black'
               }}
-            />
-            <p> While this website works as a continually evolving digital archive of my work, there are more transient and embodied experiences of becoming myself that refuse documentation. Find me in real life dancing, singing, sensing, remembering, daydremaing, and living.  </p>
-              
+            />              
 
           </>,
           showAbout,
