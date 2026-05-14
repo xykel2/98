@@ -437,7 +437,6 @@ export default function App() {
                 border: '2px solid black'
               }}
             />
-            <p> art -> Imgaes, Sounds, Videos; academic and professional -> Projects; thoughts -> Musings. </p>
             <p> While this website works as a continually evolving digital archive of my work, there are more transient and embodied experiences of becoming myself that refuse documentation. Find me in real life dancing, singing, sensing, remembering, daydremaing, and living.  </p>
               
 
@@ -506,7 +505,7 @@ export default function App() {
                 </a>
               </li>
             </ul>
-            <p>Every Sunday night 11pm-midnight EST you can catch me on the airwaves of 
+            <p>Some Sunday nights 11pm-midnight EST you can catch me on the airwaves of 
               New York City playing sounds from Eastern Europe, East and Central Asia. 
               Tune in at <a href="https://wkcr.org" target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-500">
               WKCR 89.9FM</a>
