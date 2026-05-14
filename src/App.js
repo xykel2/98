@@ -3,12 +3,12 @@ import '98.css';
 
 // Scroll-triggered phrases that appear as the user scrolls down
 const SCROLL_PHRASES = [
-  { text: "While this website works as a continually evolving digital archive", threshold: 0.08 },
-  { text: "there are more impermanent and embodied experiences", threshold: 0.18 },
-  { text: "of becoming myself", threshold: 0.30 },
-  { text: "that refuse documentation", threshold: 0.42 },
-  { text: "So find me in real life", threshold: 0.55 },
-  { text: "dancing, singing, sensing", threshold: 0.68 },
+  { text: "While this website works as a continually evolving digital archive of my work and thoughts", threshold: 0.08 },
+  { text: "there are so many more impermanent and embodied experiences", threshold: 0.18 },
+  { text: "of intersubjective becoming that slip away from documentation", threshold: 0.30 },
+  { text: "(I am learning to notice all of that, always stirring seeping through me)", threshold: 0.52 },
+  { text: "So let's find each other in real life", threshold: 0.59 },
+  { text: "dancing, singing, sensing", threshold: 0.70 },
   { text: "remembering, daydreaming, and living", threshold: 0.82 },
 ];
 
