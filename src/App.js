@@ -10,7 +10,10 @@ const SCROLL_PHRASES = [
   { text: "So let's find each other in real life", threshold: 0.59 },
   { text: "dancing, singing, sensing", threshold: 0.70 },
   { text: "remembering, daydreaming, and living", threshold: 0.82 },
-  { text: "- In Girum Imus Nocte et Consumimur Igni -", threshold: 0.95 },
+  { text: ".", threshold: 0.96 },
+  { text: ".", threshold: 0.97 },
+  { text: ".", threshold: 0.98 },
+  { text: "- In Girum Imus Nocte et Consumimur Igni -", threshold: 0.99 },
 ];
 
 const BACKGROUND = '/backgrounds/bg4.png';
